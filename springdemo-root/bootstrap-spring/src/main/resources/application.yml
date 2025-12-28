@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: bulk-payment
+
+server:
+  port: 5050

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bootstrap-spring" />
+        <module name="infra" />
+        <module name="api" />
+        <module name="application" />
+        <module name="domain" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="17" />
+      <module name="application" target="17" />
+      <module name="backend" target="1.5" />
+      <module name="bootstrap-spring" target="17" />
+      <module name="domain" target="17" />
+      <module name="infra" target="17" />
+      <module name="springdemo-root" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="" />
+      <module name="bootstrap-spring" options="" />
+    </option>
+  </component>
+</project>
