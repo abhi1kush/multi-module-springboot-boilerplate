@@ -32,33 +32,24 @@ api
  ```
 
 2️⃣ What is Application (in Hexagonal / Clean Architecture)?
-Application = Use-case layer
+    Application = Use-case layer
+    It answers the question:
 
-It answers the question:
+    “What can this system do?”
 
-“What can this system do?”
-
-Responsibilities
-
-Orchestrates business use cases
-
-Coordinates domain objects
-
-Defines ports (interfaces) for external systems
-
-Controls transactions and consistency
+    Responsibilities
+        - Orchestrates business use cases
+        - Coordinates domain objects
+        - Defines ports (interfaces) for external systems
+        - Controls transactions and consistency
 
 Has zero knowledge of frameworks
 
 Example responsibilities
-
-Create something
-
-Process something
-
-Approve / reject something
-
-Fetch something in a business-meaningful way
+    - Create something
+    - Process something
+    - Approve / reject something
+    - Fetch something in a business-meaningful way
 
 What lives here
 ```
@@ -80,19 +71,13 @@ What it MUST NOT contain
 
 2.1 Application layer is too thin (currently empty shell)
 
-Your application module is almost empty.
-
-That’s fine for now, but the next code must go here, not in api or infra.
-
-What should live in application
-
-Use cases
-
-Ports (interfaces)
-
-Transaction boundaries
-
-Orchestration logic
+    Your application module is almost empty.
+    That’s fine for now, but the next code must go here, not in api or infra.
+    What should live in application
+        - Use cases
+        - Ports (interfaces)
+        - Transaction boundaries
+        - Orchestration logic
 
 If you skip this, you’ll slide into controller-driven logic (very common mistake).
 
@@ -101,43 +86,30 @@ If you skip this, you’ll slide into controller-driven logic (very common mista
 Your controllers are currently fine, but:
 
 ⚠️ If you add:
-
-business rules
-
-decision logic
-
-database calls
-
-into controllers → architecture breaks.
+    - business rules
+    - decision logic
+    - database calls
+    - into controllers → architecture breaks.
 
 Controllers must:
-
-validate input
-
-call application use case
-
-map output
+    - validate input
+    - call application use case
+    - map output
 
 Nothing more.
 
 3️⃣ What is bootstrap-spring (Why it Exists)
-bootstrap-spring = Runtime entry point
+    - bootstrap-spring = Runtime entry point
 
 It answers the question:
-
-“How do we start this system?”
+    - “How do we start this system?”
 
 Responsibilities
-
-Contains main() method
-
-Boots Spring
-
-Wires adapters together
-
-Starts embedded server
-
-Loads configuration
+    - Contains main() method
+    - Boots Spring
+    - Wires adapters together
+    - Starts embedded server
+    - Loads configuration
 
 What lives here
 ```
@@ -154,12 +126,12 @@ What it MUST NOT contain
 
 4️⃣ Analogy (Very Important)
 🎮 Game Analogy
-Concept	Real Life Equivalent
-Domain	Game rules
-Application	Game flow (turns, win conditions)
-API	Controller / Keyboard
-Infrastructure	Graphics / Sound / Storage
-Bootstrap-spring	Game launcher (.exe)
+    - Concept	Real Life Equivalent
+    - Domain	Game rules
+    - Application	Game flow (turns, win conditions)
+    - API	Controller / Keyboard
+    - Infrastructure	Graphics / Sound / Storage
+    - Bootstrap-spring	Game launcher (.exe)
 
 The launcher is not the game logic.
 
@@ -175,12 +147,12 @@ springdemo-root
 └── bootstrap-spring  ← HOW the system starts
 ```
 Concrete meaning in your repo
-Module	Purpose
-domain	Business rules, entities
-application	Use cases, orchestration
-api	REST controllers
-infra	DB / external implementations
-bootstrap-spring Spring Boot entry point
+    - Module	        Purpose
+    - domain	        Business rules, entities
+    - application	    Use cases, orchestration
+    - api	            REST controllers
+    - infra	            DB / external implementations
+    - bootstrap-spring  Spring Boot entry point
 ```
 bootstrap-spring
  └── infra
@@ -387,16 +359,16 @@ Dependencies must always point inward.
 
 ✅ Summary Rules for Contributors
 
-Controllers are thin
+    - Controllers are thin
 
-Use cases orchestrate, domain decides
+    - Use cases orchestrate, domain decides
 
-Domain is framework-free
+    - Domain is framework-free
 
-Infrastructure implements ports
+    - Infrastructure implements ports
 
-Dependency direction is sacred
+    - Dependency direction is sacred
 
-One-Line Rule (Put This in Your Head)
+    - One-Line Rule (Put This in Your Head)
 
-If removing Spring breaks your business logic, the architecture is wrong.
+    - If removing Spring breaks your business logic, the architecture is wrong.
