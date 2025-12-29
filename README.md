@@ -164,15 +164,15 @@ api
 ```
 🔚 Final Takeaway
 
-Application = brain
+    - Application = brain
 
-Domain = rules
+    - Domain = rules
 
-API = mouth
+    - API = mouth
 
-Infra = hands
+    - Infra = hands
 
-Bootstrap-spring = body switch-on button
+    - Bootstrap-spring = body switch-on button
 
 6️⃣ How Spring MVC Fits Into Hexagonal
 
