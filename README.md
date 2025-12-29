@@ -2,6 +2,7 @@
 multi-module-springboot-boilerplate
 
 1. Hexagonal Architecure.
+```
        ┌──────────┐
        │   API    │  ← HTTP, CLI, gRPC
        └────┬─────┘
@@ -17,6 +18,7 @@ multi-module-springboot-boilerplate
        ┌──────────┐
        │ Infra    │  ← DB, MQ, REST
        └──────────┘
+```
 
 bootstrap-spring
  └── depends on infra only
