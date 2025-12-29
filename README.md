@@ -19,7 +19,7 @@ multi-module-springboot-boilerplate
        │ Infra    │  ← DB, MQ, REST
        └──────────┘
 ```
-
+```
 bootstrap-spring
  └── depends on infra only
 
@@ -29,6 +29,7 @@ infra
 
 api
  └── depends on application
+ ```
 
 2️⃣ What is Application (in Hexagonal / Clean Architecture)?
 Application = Use-case layer
@@ -60,6 +61,7 @@ Approve / reject something
 Fetch something in a business-meaningful way
 
 What lives here
+```
 application
  ├── usecase
  │    └── CreateXxxUseCase
@@ -68,7 +70,7 @@ application
  │    └── OutboundPort
  └── service
       └── XxxApplicationService
-
+```
 What it MUST NOT contain
 
 ❌ @SpringBootApplication
@@ -138,11 +140,12 @@ Starts embedded server
 Loads configuration
 
 What lives here
+```
 bootstrap-spring
  ├── SpringDemoApplication.java
  └── config
      └── AppConfig.java
-
+```
 What it MUST NOT contain
 
 ❌ Business logic
@@ -163,14 +166,14 @@ The launcher is not the game logic.
 5️⃣ Mapping This to YOUR Project
 
 Your current structure:
-
+```
 springdemo-root
 ├── domain            ← WHAT the business is
 ├── application       ← WHAT the system can do
 ├── api               ← HOW users talk to it
 ├── infra             ← HOW system talks outward
 └── bootstrap-spring  ← HOW the system starts
-
+```
 Concrete meaning in your repo
 Module	Purpose
 domain	Business rules, entities
@@ -178,7 +181,7 @@ application	Use cases, orchestration
 api	REST controllers
 infra	DB / external implementations
 bootstrap-spring Spring Boot entry point
-
+```
 bootstrap-spring
  └── infra
        └── application
@@ -186,7 +189,7 @@ bootstrap-spring
 api
  └── application
        └── domain
-
+```
 🔚 Final Takeaway
 
 Application = brain
